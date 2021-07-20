@@ -12,4 +12,13 @@ module.exports = class GithubClient {
     const data = await this.restClient.callGet(url);
     return data;
   }
+
+  async getUserRepositories(userHandle) {
+    const url = `/users/${userHandle}/repos`;
+    const data = await this.restClient.callGet(url);
+    return data;
+  }
 };
+
+// https://api.github.com/search/repositories?q=${restData.repoName}&per_page=4
+// https://api.github.com/users/${restData.username}/repos

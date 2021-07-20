@@ -11,6 +11,17 @@ class UserController {
       next(err);
     }
   }
+
+  // eslint-disable-next-line class-methods-use-this
+  async getUserRepositories(req, res, next) {
+    const { userHandler } = req.query;
+    try {
+      const userInfo = await userService.getUserRepositories(userHandler);
+      res.json(userInfo);
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = new UserController();
