@@ -5,6 +5,8 @@ import userRoutes from './routes/user.route';
 import { handleError } from './middlewares/errorHandler';
 
 const app = express();
+// app.use((req, res) => res.status(404).json({ message: 'Not found' }));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(config.PORT, () => {

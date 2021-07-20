@@ -5,7 +5,6 @@ class UserController {
   async getUserInfo(req, res, next) {
     const { userHandler } = req.query;
     try {
-      console.log('coming here');
       const userInfo = await userService.getUserInfo(userHandler);
       res.json(userInfo);
     } catch (err) {

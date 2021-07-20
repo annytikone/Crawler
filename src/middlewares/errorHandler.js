@@ -7,11 +7,10 @@ class ErrorHandler extends Error {
 }
 
 const handleError = (req, res, err) => {
-  console.log('inside of handle error:', err);
-  const { statusCode, message } = err;
+  const { statusCode } = err;
   res.json({
     statusCode,
-    message,
+    message: 'NOT FOUND',
   });
 };
 
