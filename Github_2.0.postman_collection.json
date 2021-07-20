@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "c264872d-8365-4e8f-8e70-dfcdf559a2d4",
+		"name": "Github 2.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Repo List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/repo/?userHandler=annytikone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"repo",
+						""
+					],
+					"query": [
+						{
+							"key": "userHandler",
+							"value": "annytikone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/?userHandler=annytikone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						""
+					],
+					"query": [
+						{
+							"key": "userHandler",
+							"value": "annytikone"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
