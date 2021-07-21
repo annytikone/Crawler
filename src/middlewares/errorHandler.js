@@ -7,10 +7,10 @@ class ErrorHandler extends Error {
 }
 
 const handleError = (req, res, err) => {
-  const { statusCode } = err;
+  const { statusCode, message } = err;
   res.json({
     statusCode,
-    message: 'NOT FOUND',
+    message,
   });
 };
 
