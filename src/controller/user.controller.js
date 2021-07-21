@@ -5,8 +5,8 @@ class UserController {
   async getUserInfo(req, res, next) {
     const { userHandler } = req.query;
     try {
-      const userInfo = await userService.getUserInfo(userHandler);
-      res.json(userInfo);
+      const userGithubInfo = await userService.getUserInfo(userHandler);
+      res.json(userGithubInfo);
     } catch (err) {
       next(err);
     }
@@ -16,8 +16,8 @@ class UserController {
   async getUserRepositories(req, res, next) {
     const { userHandler } = req.query;
     try {
-      const userInfo = await userService.getUserRepositories(userHandler);
-      res.json(userInfo);
+      const userRepoList = await userService.getUserRepositories(userHandler);
+      res.json(userRepoList);
     } catch (err) {
       next(err);
     }

@@ -1,25 +1,23 @@
 import User from '../model/user.model';
-import GithubClient from '../helper/githubClient';
+import GithubServer from './githubService';
+import ErrorHandler from '../middlewares/errorHandler';
 
 class UserService {
   // eslint-disable-next-line class-methods-use-this
   async getUserInfo(userHandler) {
-    const githCleint = new GithubClient();
-
     let userInfo = await User.findOne({ login: userHandler });
     if (userInfo) {
       return userInfo;
     }
-    userInfo = await githCleint.getUserInfo(userHandler);
+    userInfo = await GithubServer.getUserInfo(userHandler);
     const user = User.create(userInfo);
     return user;
   }
 
   // eslint-disable-next-line class-methods-use-this
   async getUserRepositories(userHandler) {
-    const githCleint = new GithubClient();
     const repoList = [];
-    const repos = await githCleint.getUserRepositories(userHandler);
+    const repos = await GithubServer.getUserRepositories(userHandler);
 
     repos.forEach((repo) => {
       repoList.push({
@@ -30,6 +28,7 @@ class UserService {
         repoLink: repo.url,
       });
     });
+    if (!repoList.length) throw new ErrorHandler(404, 'NOT FOUND');
     return repoList;
   }
 }
