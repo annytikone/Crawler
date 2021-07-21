@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/v1/repo/?userHandler=annytikone",
+					"raw": "http://localhost:8080/v1/repo/?repository=sam",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -24,8 +24,8 @@
 					],
 					"query": [
 						{
-							"key": "userHandler",
-							"value": "annytikone"
+							"key": "repository",
+							"value": "sam"
 						}
 					]
 				}
