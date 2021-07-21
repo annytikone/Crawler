@@ -1,7 +1,6 @@
 import userService from '../service/user.service';
 
 class UserController {
-  // eslint-disable-next-line class-methods-use-this
   async getUserInfo(req, res, next) {
     const { userHandler } = req.query;
     try {
@@ -12,7 +11,6 @@ class UserController {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
   async getUserRepositories(req, res, next) {
     const { userHandler } = req.query;
     try {

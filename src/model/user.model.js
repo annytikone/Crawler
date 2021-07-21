@@ -1,22 +1,22 @@
-// import validator from 'validator';
-
 import mongoose from '../utils/connect';
 
-// const { Schema } = mongoose;
-
 const userSchema = new mongoose.Schema({
-  login: {
-    type: String,
-    required: true,
-  },
   id: {
     type: Number,
+    required: true,
+  },
+  login: {
+    type: String,
     required: true,
   },
   node_id: {
     type: String,
     required: true,
   },
+  blog: String,
+  location: String,
+  email: String,
+  hireable: Boolean,
   avatar_url: String,
   gravatar_id: String,
   url: String,
@@ -34,10 +34,6 @@ const userSchema = new mongoose.Schema({
   site_admin: Boolean,
   name: String,
   company: String,
-  blog: String,
-  location: String,
-  email: String,
-  hireable: Boolean,
   bio: String,
   twitter_username: String,
   public_repos: Number,
