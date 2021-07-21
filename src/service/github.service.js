@@ -7,6 +7,7 @@ const getGithubResponse = async (url) => {
   try {
     return await axios.get(url);
   } catch (err) {
+    console.log('github response error', err);
     return err;
   }
 };
@@ -18,11 +19,12 @@ class GithubService {
     return response.data;
   }
 
-  async getUserRepositories(userHandle) {
-    const url = `${baseUrl}/users/${userHandle}/repos`;
+  async searchGithubRepositories(repo) {
+    const url = `${baseUrl}/search/repositories?q=${repo}`;
+    console.log(url);
     const response = await getGithubResponse(url);
-    return response.data;
+    return response.data.items;
   }
 }
-
+// https://api.github.com/search/repositories?q=${restData.repoName}&per_page=4
 module.exports = new GithubService();

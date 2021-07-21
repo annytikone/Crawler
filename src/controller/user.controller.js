@@ -11,10 +11,12 @@ class UserController {
     }
   }
 
-  async getUserRepositories(req, res, next) {
-    const { userHandler } = req.query;
+  async searchGithubRepositories(req, res, next) {
+    const { repository } = req.query;
     try {
-      const userRepoList = await userService.getUserRepositories(userHandler);
+      const userRepoList = await userService.searchGithubRepositories(
+        repository
+      );
       res.json(userRepoList);
     } catch (err) {
       next(err);

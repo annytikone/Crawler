@@ -14,9 +14,9 @@ class UserService {
     return user;
   }
 
-  async getUserRepositories(userHandler) {
+  async searchGithubRepositories(repository) {
     const repoList = [];
-    const repos = await GithubService.getUserRepositories(userHandler);
+    const repos = await GithubService.searchGithubRepositories(repository);
     if (!repos) throw new ErrorHandler(404, 'REPO NOT FOUND');
 
     repos.forEach((repo) => {

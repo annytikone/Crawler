@@ -7,6 +7,6 @@ const router = express.Router();
 router.get('/', userController.getUserInfo);
 
 // http://localhost:8080/v1/repo/?userHandler=annytikone
-router.get('/repo', userController.getUserRepositories);
+router.get('/repo', userController.searchGithubRepositories);
 
 module.exports = router;
